@@ -12,13 +12,13 @@
 		<link rel="stylesheet" href="{{url_for('static', filename='styles/6-filters.css')}}?{{cached_id}}"/>
 		<link rel="stylesheet" href="{{url_for('static', filename='styles/8-places.css')}}?{{cached_id}}">
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-		<script src="{{url_for('static', filename='scripts/100-hbnb.js')}}?{{cached_id}}"></script>
+		<script src="{{url_for('static', filename='scripts/101-hbnb.js')}}?{{cached_id}}"></script>
 		<title>100</title>
 	</head>
 	<body>
 		<header>
 			<div class="logo"></div>
-			<div id="api_status" class="available"></div>
+			<div id="api_status"</div>
 		</header>
 		<div class="container">
 			<section class="filters">
@@ -44,7 +44,7 @@
 					<ul class="popover">
 					{% for state in states|sort(attribute='name', case_sensitive=True) %}
 						<LI>
-							<h2><input type="checkbox" id="state_filter" data-id="{{state[0].id}}" data-name="{{state[0].name}}">{{ state.name }}</h2>
+							<h2><input type="checkbox" id="state_filter" data-id="{{state.id}}" data-name="{{state.name}}">{{ state.name }}</h2>
  							<UL>
 							{% for city in state.cities|sort(attribute='name') %}
 								<LI><input type="checkbox" id="city_filter" data-id="{{city.id}}"
@@ -55,7 +55,6 @@
 					{% endfor %}
 					</ul>
 				</div>
-				<button type="button">Search</button>
 			</section>
 
 			<section class="places">

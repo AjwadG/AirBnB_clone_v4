@@ -6,6 +6,7 @@ header {
 	background-image: url("../images/logo.png");
 	background-repeat: no-repeat;
 	background-position: 20px center;
+	display: flex;
 }
 
 header #api_status {
@@ -14,6 +15,9 @@ header #api_status {
     margin-right: 30px;
     border-radius: 50%;
     background-color: #cccccc;
+	align-self: center;
+	position: absolute;
+	right: 0;
 }
 header #api_status.available {
 	background-color: #ff545f;
