@@ -51,7 +51,9 @@ section.filters div:hover > .popover {
 .locations h4, .amenities h4 {
 	margin: 0 40px;
 	font-weight: 400;
-	font-size: 14px
+	font-size: 14px;
+	overflow: hidden;
+	height: 14px;
 }
 
 div ul {
@@ -66,7 +68,7 @@ div ul {
 	display: none;
 	z-index: 100;
 	top: 100%;
-	padding: 20px;
+	padding: 20px 15px;
 	background-color: #FAFAFA;
 	width: 100%;
 	border: 1px solid #DDDDDD;
