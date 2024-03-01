@@ -12,11 +12,13 @@
 		<link rel="stylesheet" href="{{url_for('static', filename='styles/6-filters.css')}}?{{cached_id}}"/>
 		<link rel="stylesheet" href="{{url_for('static', filename='styles/8-places.css')}}?{{cached_id}}">
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-		<script src="{{url_for('static', filename='scripts/1-hbnb.js')}}?{{cached_id}}"></script>
+		<script src="{{url_for('static', filename='scripts/4-hbnb.js')}}?{{cached_id}}"></script>
+		<title>airbnb 4</title>
 	</head>
 	<body>
 		<header>
 			<div class="logo"></div>
+			<div id="api_status" class="available"></div>
 		</header>
 		<div class="container">
 			<section class="filters">
@@ -52,30 +54,15 @@
 					{% endfor %}
 					</ul>
 				</div>
-
+				<button type="button">Search</button>
 			</section>
+
 			<section class="places">
 				<h1>Places</h1>
 				<div class="places-list">
-					{% for place in places|sort(attribute='name', case_sensitive=True) %}
-					<article> 
-						<h2>{{place.name}}</h2>
-						<div class="price_by_night">${{ place.price_by_night }}</div>
-						<div class="information">
-							<div class="max_guest">{{ place.max_guest }} Guests</div>
-							<div class="number_rooms">{{ place.number_rooms }} Bedroom</div>
-							<div class="number_bathrooms">{{ place.number_bathrooms }} Bathroom</div>
-						</div>
-						<div class="user">
-							<p><span>Owner:</span> {{ place.owner }}</p>
-						</div>
-						<div class="description">
-							<p>{{ place.description|safe }}</p>
-						</div>
-					</article>
-					{% endfor %}
 				</div>
 			</section>
+		
 		</div>
 		<footer>
 			<span>Best School</span>

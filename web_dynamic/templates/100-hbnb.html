@@ -12,11 +12,13 @@
 		<link rel="stylesheet" href="{{url_for('static', filename='styles/6-filters.css')}}?{{cached_id}}"/>
 		<link rel="stylesheet" href="{{url_for('static', filename='styles/8-places.css')}}?{{cached_id}}">
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-		<script src="{{url_for('static', filename='scripts/1-hbnb.js')}}?{{cached_id}}"></script>
+		<script src="{{url_for('static', filename='scripts/100-hbnb.js')}}?{{cached_id}}"></script>
+		<title>100</title>
 	</head>
 	<body>
 		<header>
 			<div class="logo"></div>
+			<div id="api_status" class="available"></div>
 		</header>
 		<div class="container">
 			<section class="filters">
@@ -29,7 +31,7 @@
 					{% for amenity in amenities|sort(attribute='name', case_sensitive=True) %}
 						<li>
 							<input data-id="{{amenity.id}}" 
-								data-name="{{amenity.name}}" type="checkbox">
+								data-name="{{amenity.name}}" type="checkbox" id="amenity_filter">
 								{{ amenity.name }}
 						</li>
 					{% endfor %}
@@ -42,40 +44,26 @@
 					<ul class="popover">
 					{% for state in states|sort(attribute='name', case_sensitive=True) %}
 						<LI>
-							<h2>{{ state.name }}</h2>
+							<h2><input type="checkbox" id="state_filter" data-id="{{state[0].id}}" data-name="{{state[0].name}}">{{ state.name }}</h2>
  							<UL>
 							{% for city in state.cities|sort(attribute='name') %}
-								<LI>{{ city.name }}<LI>
+								<LI><input type="checkbox" id="city_filter" data-id="{{city.id}}"
+									data-name="{{city.name}}">{{ city.name }}<LI>
 							{% endfor %}
 							</UL>
 						</LI>
 					{% endfor %}
 					</ul>
 				</div>
-
+				<button type="button">Search</button>
 			</section>
+
 			<section class="places">
 				<h1>Places</h1>
 				<div class="places-list">
-					{% for place in places|sort(attribute='name', case_sensitive=True) %}
-					<article> 
-						<h2>{{place.name}}</h2>
-						<div class="price_by_night">${{ place.price_by_night }}</div>
-						<div class="information">
-							<div class="max_guest">{{ place.max_guest }} Guests</div>
-							<div class="number_rooms">{{ place.number_rooms }} Bedroom</div>
-							<div class="number_bathrooms">{{ place.number_bathrooms }} Bathroom</div>
-						</div>
-						<div class="user">
-							<p><span>Owner:</span> {{ place.owner }}</p>
-						</div>
-						<div class="description">
-							<p>{{ place.description|safe }}</p>
-						</div>
-					</article>
-					{% endfor %}
 				</div>
 			</section>
+
 		</div>
 		<footer>
 			<span>Best School</span>
