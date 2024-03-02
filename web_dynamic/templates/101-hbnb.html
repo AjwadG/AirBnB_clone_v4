@@ -30,7 +30,7 @@
 					<ul class="popover">
 					{% for amenity in amenities|sort(attribute='name', case_sensitive=True) %}
 						<li>
-							<input data-id="{{amenity.id}}" 
+							<input data-id="{{amenity.id}}"
 								data-name="{{amenity.name}}" type="checkbox" id="amenity_filter">
 								{{ amenity.name }}
 						</li>
